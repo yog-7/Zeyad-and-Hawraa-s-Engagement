@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>دعوة خطوبة زياد وحوراء</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@300;400;500;700&family=Marcellus&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#170406;
+    --bg-1:#2b0d12;
+    --bg-2:#3c131a;
+    --gold:#cda86e;
+    --gold-light:#ecd9ab;
+    --card:#fbf3ec;
+    --card-2:#f4e7da;
+    --ink:#4a2420;
+    --ink-soft:#8a6a5f;
+    --cream:#f6ece1;
+    --line: rgba(205,168,102,.4);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Tajawal', sans-serif;
+    background:var(--bg-0);
+    color:var(--cream);
+    overflow-x:hidden;
+  }
+  .names-font{ font-family:'Aref Ruqaa', serif; }
+
+  /* ---------- ornament ---------- */
+  .orn-row{
+    display:flex; align-items:center; justify-content:center;
+    gap:.6rem;
+    margin-bottom:.9rem;
+  }
+  .orn-row .orn-line{ width:32px; height:1px; background:linear-gradient(90deg, transparent, var(--gold), transparent); opacity:.8;}
+  .orn-row .orn-dot{
+    width:8px; height:8px; background:var(--gold);
+    transform:rotate(45deg); opacity:.95;
+    box-shadow:0 0 8px 1px rgba(205,168,110,.55);
+  }
+
+  /* ---------- INTRO / HERO ---------- */
+  #hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    padding:8vh 6% 6vh;
+    text-align:center;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse at 42% 30%, rgba(180,50,60,.35), transparent 55%),
+      linear-gradient(180deg, #5c1620 0%, #3a0d16 55%, #240810 100%);
+  }
+  #hero::before{ /* curtain panel on the right, like a stage backdrop */
+    content:"";
+    position:absolute; inset:0 0 0 62%;
+    background:
+      linear-gradient(90deg, rgba(0,0,0,.35), transparent 12%),
+      repeating-linear-gradient(90deg, #4a0f1a 0px, #4a0f1a 22px, #3a0c15 22px, #3a0c15 44px);
+    box-shadow: -30px 0 40px -10px rgba(0,0,0,.5) inset;
+    pointer-events:none;
+  }
+  #hero::after{ /* soft marble floor at the base */
+    content:"";
+    position:absolute; left:0; right:0; bottom:0; height:16%;
+    background:
+      repeating-linear-gradient(100deg, rgba(255,255,255,.03) 0 2px, transparent 2px 26px),
+      linear-gradient(180deg, transparent, rgba(230,220,210,.16) 55%, rgba(230,220,210,.22));
+    pointer-events:none;
+  }
+  .ring-arch{
+    position:absolute;
+    left:50%; top:14%;
+    transform:translateX(-50%);
+    width:230px; height:230px;
+    border-radius:50%;
+    border:5px solid var(--gold);
+    opacity:.5;
+    box-shadow:0 0 30px rgba(205,168,110,.15);
+    z-index:0;
+  }
+  .leaf-cluster{
+    position:absolute;
+    bottom:4%;
+    width:70px; height:44px;
+    z-index:1;
+    opacity:.8;
+  }
+  .leaf-cluster::before, .leaf-cluster::after{
+    content:"";
+    position:absolute;
+    width:26px; height:16px;
+    background:linear-gradient(135deg, #8c2436, #4d1220);
+    border-radius:0 100% 0 100%;
+  }
+  .leaf-cluster::before{ bottom:0; left:0; transform:rotate(20deg); }
+  .leaf-cluster::after{ bottom:8px; left:20px; transform:rotate(-25deg); }
+  .leaf-left{ left:2%; }
+  .leaf-right{ right:2%; transform:scaleX(-1); }
+  .sparkle{
+    position:absolute;
+    width:4px; height:4px;
+    background:var(--gold-light);
+    border-radius:50%;
+    opacity:0;
+    box-shadow:0 0 6px 2px rgba(230,205,154,.8);
+    animation: twinkle 3.5s ease-in-out infinite;
+  }
+  @keyframes twinkle{
+    0%,100%{ opacity:0; transform:scale(.4) translateY(0);}
+    50%{ opacity:1; transform:scale(1) translateY(-6px);}
+  }
+  .burst-particle{
+    position:fixed;
+    width:5px; height:5px;
+    border-radius:50%;
+    background:var(--gold-light);
+    box-shadow:0 0 8px 2px rgba(236,217,171,.9);
+    pointer-events:none;
+    z-index:999;
+    animation: burstFly 900ms ease-out forwards;
+  }
+  @keyframes burstFly{
+    0%{ opacity:1; transform:translate(0,0) scale(1); }
+    100%{ opacity:0; transform:translate(var(--bx), var(--by)) scale(.3); }
+  }
+
+  .eyebrow{
+    position:relative; z-index:2;
+    font-family:'Marcellus', serif;
+    font-size:.78rem;
+    letter-spacing:.42em;
+    color:var(--gold-light);
+    font-weight:400;
+    opacity:.9;
+    order:1;
+  }
+  .sub-eyebrow{
+    position:relative; z-index:2;
+    margin-top:.9rem;
+    font-size:1rem;
+    color:var(--cream);
+    opacity:.85;
+    font-weight:300;
+    order:2;
+  }
+  .couple-names{
+    position:relative; z-index:2;
+    margin-top:.6rem;
+    font-size:2.6rem;
+    line-height:1.5;
+    background:linear-gradient(100deg, #b9924f 20%, #f7e6b8 40%, #ecd9ab 50%, #f7e6b8 60%, #b9924f 80%);
+    background-size:220% 100%;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    filter:drop-shadow(0 0 14px rgba(230,187,120,.35));
+    animation: foilShimmer 6s ease-in-out infinite;
+    order:3;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+    transition: font-size .9s cubic-bezier(.3,1.4,.4,1), transform .9s cubic-bezier(.3,1.4,.4,1);
+  }
+  @keyframes foilShimmer{
+    0%,100%{ background-position:0% 50%; }
+    50%{ background-position:100% 50%; }
+  }
+  .amp{ color:var(--cream); font-size:1.6rem; margin:0 .3rem; opacity:.8; transition:font-size .9s ease; -webkit-text-fill-color:var(--cream);}
+
+  #hero.open .couple-names{
+    flex-direction:column;
+    gap:.2rem;
+    font-size:3rem;
+    transform:scale(1.05);
+    filter:drop-shadow(0 0 22px rgba(230,187,120,.6)) drop-shadow(0 0 42px rgba(230,187,120,.3));
+  }
+  #hero.open .couple-names .amp{ font-size:1.3rem; margin:.1rem 0; opacity:.7; }
+
+  .spot-beam{
+    position:absolute;
+    left:50%; top:6%;
+    transform:translateX(-50%);
+    width:2px; height:0;
+    opacity:0;
+    transition: opacity 1s ease, height 1.2s ease;
+    z-index:1;
+    filter:blur(1px);
+  }
+  #hero.open .spot-beam{
+    opacity:1;
+    width:180px;
+    height:52%;
+    background:
+      radial-gradient(ellipse 100px 60% at 50% 0%, rgba(255,235,190,.35), rgba(255,235,190,0) 70%);
+  }
+
+  .stage{
+    position:relative;
+    z-index:2;
+    margin-top:6vh;
+    width:100%;
+    max-width:280px;
+    height:230px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    order:4;
+    transition: order 0s .5s, margin-top .9s ease, transform .9s ease;
+  }
+  #hero.open .stage{
+    order:6;
+    margin-top:3vh;
+    transform:scale(.82);
+  }
+  .pedestal{
+    position:relative;
+    width:130px;
+    height:110px;
+    border-radius:50% / 14%;
+    background:
+      linear-gradient(180deg, #8c2436 0%, #6b1a28 55%, #4d1220 100%);
+    box-shadow: 0 30px 40px -10px rgba(0,0,0,.6), inset 0 0 24px rgba(0,0,0,.3);
+    border-top:3px solid var(--gold);
+  }
+  .pedestal::before{
+    content:"";
+    position:absolute; left:50%; top:-40px; transform:translateX(-50%);
+    width:96px; height:66px;
+    border-radius:50% / 30%;
+    background:linear-gradient(180deg, #9c2a3d 0%, #741d2c 100%);
+    border-top:3px solid var(--gold);
+    box-shadow: 0 14px 18px -6px rgba(0,0,0,.5);
+  }
+  .pedestal::after{
+    content:"";
+    position:absolute; left:50%; bottom:-14px; transform:translateX(-50%);
+    width:170px; height:26px;
+    background:radial-gradient(ellipse at center, rgba(0,0,0,.55), transparent 70%);
+  }
+  .petals span{
+    position:absolute;
+    bottom:-6px;
+    width:10px; height:7px;
+    background:#7c1c28;
+    border-radius:60% 40% 55% 45%;
+    opacity:.85;
+  }
+  .box-wrap{
+    position:absolute;
+    left:50%; top:-46px;
+    transform:translateX(-50%);
+    width:78px; height:60px;
+    perspective:400px;
+  }
+  .box-base{
+    position:absolute; inset:0;
+    top:16px;
+    background:linear-gradient(160deg,#b23347,#7c1c28 70%);
+    border-radius:6px 6px 8px 8px;
+    box-shadow:0 10px 18px rgba(0,0,0,.5), inset 0 -6px 10px rgba(0,0,0,.25);
+  }
+  .box-lid{
+    position:absolute;
+    top:6px; left:0; right:0;
+    height:26px;
+    background:linear-gradient(160deg,#c94a5d,#8c2333 70%);
+    border-radius:6px 6px 3px 3px;
+    transform-origin:top center;
+    transition:transform 1.15s cubic-bezier(.4,1.5,.4,1);
+    box-shadow:0 4px 8px rgba(0,0,0,.4);
+    z-index:3;
+  }
+  .box-lid::after{
+    content:"";
+    position:absolute; left:50%; top:8px; transform:translateX(-50%);
+    width:10px; height:10px;
+    background:radial-gradient(circle at 35% 30%, #f3d9a6, var(--gold) 60%);
+    border-radius:50%;
+  }
+  .stage.open .box-lid{
+    transform: rotateX(-125deg) translateY(-4px);
+  }
+  .ring{
+    position:absolute;
+    left:50%; top:6px;
+    transform:translateX(-50%) scale(0);
+    width:46px; height:46px;
+    opacity:0;
+    transition: transform .7s cubic-bezier(.3,1.7,.4,1) .5s, opacity .35s .5s;
+    z-index:2;
+    filter:drop-shadow(0 0 10px rgba(255,225,170,.9));
+  }
+  .stage.open .ring{ transform:translateX(-50%) scale(1); opacity:1; }
+  .ring svg{ width:100%; height:100%; animation: ringPulse 2.4s ease-in-out infinite 1.2s; overflow:visible; }
+  @keyframes ringPulse{
+    0%,100%{ filter:drop-shadow(0 0 6px rgba(255,225,170,.7)); }
+    50%{ filter:drop-shadow(0 0 18px rgba(255,225,170,1)); }
+  }
+  .shine-bar{
+    transform-box: fill-box;
+    transform-origin:center;
+    animation: shineSweep 3.4s ease-in-out infinite 1.6s;
+  }
+  @keyframes shineSweep{
+    0%{ transform: translateX(-70px) rotate(22deg); opacity:0; }
+    8%{ opacity:.9; }
+    35%{ opacity:.9; }
+    45%{ transform: translateX(70px) rotate(22deg); opacity:0; }
+    100%{ transform: translateX(70px) rotate(22deg); opacity:0; }
+  }
+  .spark{
+    position:absolute;
+    width:9px; height:9px;
+    background:#fff;
+    opacity:0;
+    clip-path: polygon(50% 0%, 61% 35%, 100% 50%, 61% 65%, 50% 100%, 39% 65%, 0% 50%, 39% 35%);
+    filter: drop-shadow(0 0 4px rgba(255,255,255,.95));
+    animation: sparkTwinkle 2.8s ease-in-out infinite;
+  }
+  .spark.s1{ top:-4px; right:0px; animation-delay:.4s; }
+  .spark.s2{ bottom:10px; left:-6px; width:6px; height:6px; animation-delay:1.6s; }
+  .spark.s3{ top:14px; left:-8px; width:5px; height:5px; animation-delay:2.3s; }
+  @keyframes sparkTwinkle{
+    0%,100%{ opacity:0; transform:scale(.2) rotate(0deg); }
+    50%{ opacity:1; transform:scale(1) rotate(30deg); }
+  }
+  .tap-hint{
+    position:relative; z-index:2;
+    margin-top:5vh;
+    display:flex; align-items:center; gap:.5rem;
+    font-size:.85rem;
+    color:var(--gold-light);
+    cursor:pointer;
+    letter-spacing:.03em;
+    animation: hintPulse 1.8s ease-in-out infinite;
+    order:5;
+  }
+  .stage.open ~ .tap-hint{ display:none; }
+  @keyframes hintPulse{ 0%,100%{opacity:.55;} 50%{opacity:1;} }
+  .tap-hint .dot{ width:6px; height:6px; border:1px solid var(--gold-light); border-radius:50%; }
+
+  .reveal-block{
+    position:relative; z-index:2;
+    max-width:340px;
+    margin-top:4vh;
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity .9s ease, transform .9s ease, order 0s .5s;
+    pointer-events:none;
+    order:6;
+  }
+  #hero.open .reveal-block{ order:5; margin-top:1.5vh; }
+  .reveal-block.show{ opacity:1; transform:translateY(0); pointer-events:auto; }
+  .reveal-block p{
+    font-size:.92rem;
+    line-height:2;
+    color:var(--cream);
+    opacity:.92;
+  }
+  .reveal-block .date-line{
+    margin-top:.6rem;
+    font-size:.85rem;
+    color:var(--gold-light);
+    letter-spacing:.02em;
+  }
+  .scroll-cue{
+    position:relative; z-index:2;
+    margin-top:5vh;
+    font-size:.78rem;
+    color:var(--gold-light);
+    opacity:0;
+    transition:opacity 1s ease .3s;
+    display:flex; flex-direction:column; align-items:center; gap:.4rem;
+    order:7;
+  }
+  .scroll-cue.show{ opacity:.85; }
+  .scroll-cue .arrow{ animation:bounce 1.6s ease-in-out infinite; font-size:1rem; }
+  @keyframes bounce{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(6px);} }
+
+  /* ---------- CONTENT ---------- */
+  #content{
+    position:relative;
+    background:
+      radial-gradient(circle at 20% 10%, rgba(205,168,110,.06), transparent 40%),
+      radial-gradient(circle at 85% 30%, rgba(205,168,110,.06), transparent 35%),
+      radial-gradient(circle at 6px 6px, rgba(205,168,110,.10) 1px, transparent 1.4px) 0 0/34px 34px,
+      linear-gradient(180deg, var(--bg-0), var(--bg-1) 12%, var(--bg-2) 100%);
+    padding:7vh 6% 8vh;
+  }
+  .card{
+    position:relative;
+    background:linear-gradient(180deg, var(--card), var(--card-2));
+    border-radius:14px;
+    padding:2.1rem 1.7rem;
+    max-width:420px;
+    margin:0 auto 1.2rem;
+    color:var(--ink);
+    box-shadow:0 24px 40px -18px rgba(0,0,0,.6), 0 0 0 1px rgba(205,168,110,.18), inset 0 0 0 5px rgba(255,255,255,.5), inset 0 0 0 6px rgba(205,168,110,.3);
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity .8s ease, transform .8s ease;
+  }
+  .card.in-view{ opacity:1; transform:translateY(0); }
+  .card::before, .card::after{
+    content:"";
+    position:absolute;
+    width:16px; height:16px;
+    border-color:var(--gold);
+    border-style:solid;
+    opacity:.55;
+  }
+  .card::before{ top:9px; left:9px; border-width:1.3px 0 0 1.3px; }
+  .card::after{ bottom:9px; right:9px; border-width:0 1.3px 1.3px 0; }
+
+  .card h3{
+    font-family:'Aref Ruqaa', serif;
+    font-size:1.28rem;
+    color:#8a2436;
+    text-align:center;
+    margin-bottom:1.2rem;
+    font-weight:700;
+  }
+
+  .quote-card{ text-align:center; }
+  .quote-card p{ font-size:1.02rem; line-height:2; font-family:'Aref Ruqaa', serif; }
+
+  .invite-card p.lead{ text-align:center; font-size:.95rem; line-height:2; margin-bottom:0; }
+
+  .countdown-grid{ display:flex; justify-content:center; gap:.7rem; }
+  .countdown-grid .cell{
+    width:66px; height:66px;
+    border-radius:50%;
+    border:1.4px solid var(--gold);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    background:#fff;
+    box-shadow:0 0 0 4px rgba(205,168,110,.08);
+  }
+  .countdown-grid .cell .num{ font-size:1.25rem; font-weight:700; color:#8a2436; font-variant-numeric:tabular-nums; }
+  .countdown-grid .cell .lbl{ font-size:.62rem; color:var(--ink-soft); margin-top:.1rem; }
+
+  .loc-date{ text-align:center; font-size:.92rem; color:var(--ink-soft); margin-bottom:.2rem; }
+  .loc-time{ text-align:center; font-size:.82rem; color:var(--ink-soft); margin-bottom:1rem; }
+  .loc-venue{ text-align:center; font-size:1.3rem; font-weight:700; font-family:'Aref Ruqaa', serif; color:#8a2436; }
+  .loc-city{ text-align:center; font-size:.85rem; color:var(--ink-soft); margin-bottom:1.3rem; }
+  .gold-btn{
+    position:relative;
+    overflow:hidden;
+    display:flex; align-items:center; justify-content:center; gap:.5rem;
+    width:100%;
+    background:linear-gradient(180deg, var(--gold-light), var(--gold));
+    color:#3d1d13;
+    border:none;
+    padding:.85rem 1rem;
+    border-radius:999px;
+    font-family:'Tajawal', sans-serif;
+    font-size:.92rem;
+    font-weight:700;
+    cursor:pointer;
+    text-decoration:none;
+    box-shadow:0 8px 18px -6px rgba(180,140,70,.65), inset 0 1px 0 rgba(255,255,255,.6);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .gold-btn::after{
+    content:"";
+    position:absolute; top:0; bottom:0; left:-60%;
+    width:40%;
+    background:linear-gradient(100deg, transparent, rgba(255,255,255,.55), transparent);
+    animation: btnSheen 3.6s ease-in-out infinite;
+  }
+  @keyframes btnSheen{
+    0%{ left:-60%; }
+    35%{ left:130%; }
+    100%{ left:130%; }
+  }
+  .gold-btn:active{ transform:scale(.97); box-shadow:0 4px 10px -4px rgba(180,140,70,.6); }
+
+  .notes-list{ list-style:none; }
+  .notes-list li{
+    display:flex; gap:.5rem;
+    font-size:.88rem;
+    line-height:1.9;
+    color:var(--ink);
+    margin-bottom:.4rem;
+  }
+  .notes-list li::before{ content:"♦"; color:var(--gold); font-size:.68rem; margin-top:.35rem; }
+
+  .cal-card{ text-align:center; }
+  .cal-month{ font-size:.78rem; letter-spacing:.08em; color:var(--gold-light); opacity:.85; margin-bottom:.8rem; }
+  .cal-medallion{
+    width:92px; height:92px;
+    border-radius:50%;
+    border:1.6px solid var(--gold-light);
+    box-shadow:0 0 0 6px rgba(236,217,171,.1);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    margin:0 auto .9rem;
+  }
+  .cal-medallion .cal-day{ font-size:.72rem; color:var(--gold-light); opacity:.85; }
+  .cal-medallion .cal-num{ font-family:'Aref Ruqaa', serif; font-size:2rem; color:var(--gold-light); line-height:1.1; }
+  .cal-time{ font-size:.82rem; color:var(--cream); opacity:.8; margin-bottom:.4rem; }
+  .cal-hint{ font-size:.78rem; color:var(--gold-light); opacity:.75; margin-bottom:1.2rem; }
+  .cal-buttons{ display:flex; gap:.6rem; }
+  .cal-buttons a{
+    flex:1;
+    text-align:center;
+    padding:.7rem .5rem;
+    border-radius:999px;
+    border:1px solid var(--line);
+    color:var(--gold-light);
+    text-decoration:none;
+    font-size:.8rem;
+    transition:background .15s ease;
+  }
+  .cal-buttons a:active{ background:rgba(205,168,110,.15); }
+  #content > .cal-card{
+    background:transparent;
+    box-shadow:none;
+  }
+  #content > .cal-card::before, #content > .cal-card::after{ display:none; }
+  #content > .cal-card{ box-shadow:none !important; }
+
+  .closing{
+    text-align:center;
+    max-width:340px;
+    margin:2.8rem auto 1.5rem;
+  }
+  .closing .diamond{ color:var(--gold); font-size:.9rem; margin-bottom:.9rem; }
+  .closing p{ font-family:'Aref Ruqaa', serif; font-size:1.2rem; color:var(--gold-light); margin-bottom:.5rem; }
+  .closing .tag{ font-size:.8rem; color:var(--cream); opacity:.7; letter-spacing:.02em; }
+
+  footer{
+    text-align:center;
+    padding:1.5rem 0 2.5rem;
+    font-size:.72rem;
+    color:var(--ink-soft);
+    opacity:.65;
+    line-height:1.8;
+  }
+
+  @media (min-width:520px){
+    .couple-names{ font-size:3.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<section id="hero">
+  <div class="ring-arch"></div>
+  <div class="leaf-cluster leaf-left"></div>
+  <div class="leaf-cluster leaf-right"></div>
+  <div class="eyebrow">ENGAGEMENT</div>
+  <div class="sub-eyebrow">دعوة خطوبة</div>
+  <div class="couple-names names-font">زياد <span class="amp">&amp;</span> حوراء</div>
+  <div class="spot-beam"></div>
+
+  <div class="stage" id="stage">
+    <div class="petals" id="petals"></div>
+    <div class="pedestal"></div>
+    <div class="box-wrap">
+      <div class="box-lid"></div>
+      <div class="box-base"></div>
+      <div class="ring" id="ring">
+        <svg viewBox="0 0 100 100">
+          <defs>
+            <radialGradient id="bandG" cx="35%" cy="30%" r="75%">
+              <stop offset="0%" stop-color="#fff3d6"/>
+              <stop offset="45%" stop-color="#e6c17a"/>
+              <stop offset="100%" stop-color="#a97a3f"/>
+            </radialGradient>
+            <linearGradient id="gemTop" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="100%" stop-color="#cfe9ff"/>
+            </linearGradient>
+            <linearGradient id="gemLeft" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#eaf6ff"/>
+              <stop offset="100%" stop-color="#a9d3f5"/>
+            </linearGradient>
+            <linearGradient id="gemRight" x1="1" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="100%" stop-color="#bcd9f2"/>
+            </linearGradient>
+            <clipPath id="gemClip">
+              <polygon points="50,4 68,28 50,44 32,28"/>
+            </clipPath>
+          </defs>
+
+          <circle cx="50" cy="66" r="27" fill="none" stroke="url(#bandG)" stroke-width="10"/>
+          <ellipse cx="42" cy="58" rx="7" ry="3" fill="#fff" opacity=".55"/>
+
+          <polygon points="50,4 68,28 50,20" fill="url(#gemTop)"/>
+          <polygon points="32,28 50,20 50,4" fill="url(#gemLeft)"/>
+          <polygon points="50,20 68,28 50,44" fill="url(#gemRight)"/>
+          <polygon points="32,28 50,20 50,44" fill="url(#gemLeft)" opacity=".85"/>
+          <polygon points="50,4 68,28 50,44 32,28" fill="none" stroke="#ffffff" stroke-width=".6" opacity=".65"/>
+
+          <g clip-path="url(#gemClip)">
+            <rect class="shine-bar" x="10" y="-10" width="10" height="70" fill="#ffffff" opacity="0"/>
+          </g>
+        </svg>
+        <span class="spark s1"></span>
+        <span class="spark s2"></span>
+        <span class="spark s3"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tap-hint" id="tapHint" onclick="openBox()">
+    <span class="dot"></span> المس الصندوق
+  </div>
+
+  <div class="reveal-block" id="revealBlock">
+    <p>يتشرفان بدعوتكم لمشاركتهما فرحة الخطوبة</p>
+    <div class="date-line">الجمعة، 2026-10-9</div>
+  </div>
+
+  <div class="scroll-cue" id="scrollCue">
+    مرر للأسفل
+    <span class="arrow">⌄</span>
+  </div>
+</section>
+
+<section id="content">
+
+  <div class="card quote-card">
+    <div class="orn-row"><span class="orn-line"></span><span class="orn-dot"></span><span class="orn-line"></span></div>
+    <p>على بركة الله، وبأطيب الأمنيات، تمّت الخطوبة</p>
+  </div>
+
+  <div class="card invite-card">
+    <div class="orn-row"><span class="orn-line"></span><span class="orn-dot"></span><span class="orn-line"></span></div>
+    <h3>بطاقة دعوة</h3>
+    <p class="lead">بقلوب مفعمة بالفرح، نتشرف بدعوتكم لحضور حفل خطوبتنا ومشاركتنا بداية حكايتنا</p>
+  </div>
+
+  <div class="card">
+    <div class="orn-row"><span class="orn-line"></span><span class="orn-dot"></span><span class="orn-line"></span></div>
+    <h3>يبدأ الحفل بعد</h3>
+    <div class="countdown-grid">
+      <div class="cell"><div class="num" id="cd-days">--</div><div class="lbl">يوم</div></div>
+      <div class="cell"><div class="num" id="cd-hours">--</div><div class="lbl">ساعة</div></div>
+      <div class="cell"><div class="num" id="cd-mins">--</div><div class="lbl">دقيقة</div></div>
+      <div class="cell"><div class="num" id="cd-secs">--</div><div class="lbl">ثانية</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="orn-row"><span class="orn-line"></span><span class="orn-dot"></span><span class="orn-line"></span></div>
+    <h3>الموقع</h3>
+    <div class="loc-date">الجمعة، 2026-10-9</div>
+    <div class="loc-time">5:00 PM</div>
+    <div class="loc-venue">قاعة أرينا</div>
+    <div class="loc-city">زيونة – بغداد</div>
+    <a class="gold-btn" id="mapBtn" href="#" target="_blank" rel="noopener">📍 الموقع على الخريطة</a>
+  </div>
+
+  <div class="card">
+    <div class="orn-row"><span class="orn-line"></span><span class="orn-dot"></span><span class="orn-line"></span></div>
+    <h3>ملاحظات</h3>
+    <ul class="notes-list">
+      <li>يرجى الحضور قبل نصف ساعة</li>
+      <li>نتشرف بحضوركم</li>
+      <li>جنة الأطفال منازلهم</li>
+    </ul>
+  </div>
+
+  <div class="card cal-card">
+    <div class="cal-month">تشرين الأول 2026</div>
+    <div class="cal-medallion">
+      <div class="cal-day">الجمعة</div>
+      <div class="cal-num names-font">9</div>
+    </div>
+    <div class="cal-time">5:00 PM</div>
+    <div class="cal-hint">📲 أضيفوا الموعد إلى تقويم هاتفكم بضغطة</div>
+    <div class="cal-buttons">
+      <a id="gcalBtn" href="#" target="_blank" rel="noopener">تقويم جوجل</a>
+      <a id="icsBtn" href="#" download="خطوبة-زياد-وحوراء.ics">تقويم أيفون</a>
+    </div>
+  </div>
+
+  <div class="closing">
+    <div class="diamond">◆</div>
+    <p>حضوركم يزيدنا فرحة</p>
+    <div class="tag">#خطوبة_زياد_وحوراء</div>
+  </div>
+
+  <footer>صُممت هذه الدعوة بمحبة لأجل زياد وحوراء<br>BY: ENG Youssif G.Abdulkreem</footer>
+</section>
+
+<div id="yt-player" style="position:fixed; width:1px; height:1px; opacity:0; pointer-events:none; bottom:0; left:0;"></div>
+<button id="soundToggle" aria-label="صوت" style="position:fixed; bottom:18px; left:18px; z-index:50; width:42px; height:42px; border-radius:50%; border:1px solid rgba(205,168,110,.5); background:rgba(20,6,9,.7); color:#ecd9ab; font-size:1.1rem; cursor:pointer; backdrop-filter:blur(4px);">🔈</button>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  /* ---------- background song (official Rotana YouTube upload, started at 0:25) ---------- */
+  let ytPlayer = null;
+  let ytReady = false;
+  let wantsPlay = false;
+  let muted = false;
+  function onYouTubeIframeAPIReady(){
+    ytPlayer = new YT.Player('yt-player', {
+      videoId: '3sXYll2g_6c',
+      playerVars: { start: 25, controls: 0, disablekb: 1, playsinline: 1 },
+      events: {
+        onReady: function(){
+          ytReady = true;
+          if(wantsPlay){ ytPlayer.playVideo(); }
+        }
+      }
+    });
+  }
+  function playSong(){
+    wantsPlay = true;
+    if(ytReady){
+      ytPlayer.seekTo(25, true);
+      ytPlayer.playVideo();
+    }
+  }
+  document.getElementById('soundToggle').addEventListener('click', ()=>{
+    if(!ytReady) return;
+    muted = !muted;
+    if(muted){ ytPlayer.mute(); document.getElementById('soundToggle').textContent='🔇'; }
+    else{ ytPlayer.unMute(); document.getElementById('soundToggle').textContent='🔈'; }
+  });
+</script>
+<script>
+  /* ---------- sparkles ---------- */
+  const petalsWrap = document.getElementById('petals');
+  for(let i=0;i<10;i++){
+    const p = document.createElement('span');
+    p.style.left = (Math.random()*110-5)+'px';
+    p.style.transform = `rotate(${Math.random()*360}deg)`;
+    petalsWrap.appendChild(p);
+  }
+  const hero = document.getElementById('hero');
+  for(let i=0;i<24;i++){
+    const s = document.createElement('div');
+    s.className='sparkle';
+    s.style.left = Math.random()*100+'%';
+    s.style.top = Math.random()*70+'%';
+    s.style.animationDelay = (Math.random()*3.5)+'s';
+    hero.appendChild(s);
+  }
+
+  /* ---------- celebratory particle burst (used on ring reveal + RSVP) ---------- */
+  function burst(x, y, count){
+    for(let i=0;i<count;i++){
+      const el = document.createElement('div');
+      el.className = 'burst-particle';
+      const angle = Math.random()*Math.PI*2;
+      const dist = 40 + Math.random()*60;
+      el.style.setProperty('--bx', Math.cos(angle)*dist + 'px');
+      el.style.setProperty('--by', Math.sin(angle)*dist + 'px');
+      el.style.left = x+'px';
+      el.style.top = y+'px';
+      document.body.appendChild(el);
+      setTimeout(()=>el.remove(), 950);
+    }
+  }
+
+  /* ---------- box open sequence ---------- */
+  let opened = false;
+  function openBox(){
+    if(opened) return;
+    opened = true;
+    document.getElementById('hero').classList.add('open');
+    document.getElementById('stage').classList.add('open');
+    document.getElementById('tapHint').style.display='none';
+    playSong();
+    setTimeout(()=>{
+      const r = document.getElementById('ring').getBoundingClientRect();
+      burst(r.left + r.width/2, r.top + r.height/2, 14);
+    }, 550);
+    setTimeout(()=>{
+      document.getElementById('revealBlock').classList.add('show');
+    }, 950);
+    setTimeout(()=>{
+      document.getElementById('scrollCue').classList.add('show');
+    }, 1750);
+  }
+
+  /* ---------- scroll reveal for cards ---------- */
+  const cards = document.querySelectorAll('.card');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); }
+    });
+  }, {threshold:.15});
+  cards.forEach(c=>io.observe(c));
+
+  /* ---------- countdown ---------- */
+  const weddingDate = new Date('2026-10-09T17:00:00');
+  function tickCountdown(){
+    const now = new Date();
+    let diff = weddingDate - now;
+    if(diff < 0) diff = 0;
+    const days = Math.floor(diff/(1000*60*60*24));
+    const hours = Math.floor((diff/(1000*60*60))%24);
+    const mins = Math.floor((diff/(1000*60))%60);
+    const secs = Math.floor((diff/1000)%60);
+    document.getElementById('cd-days').textContent = days;
+    document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+    document.getElementById('cd-mins').textContent = String(mins).padStart(2,'0');
+    document.getElementById('cd-secs').textContent = String(secs).padStart(2,'0');
+  }
+  tickCountdown();
+  setInterval(tickCountdown, 1000);
+
+  /* ---------- map + calendar links ---------- */
+  document.getElementById('mapBtn').href = "https://www.google.com/maps/place/33%C2%B019'09.0%22N+44%C2%B026'38.2%22E/@33.3191643,44.4413681,17z/data=!3m1!4b1!4m4!3m3!8m2!3d33.3191643!4d44.443943?hl=en&entry=ttu&g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D";
+
+  const gcalText = encodeURIComponent('خطوبة زياد وحوراء');
+  const gcalDetails = encodeURIComponent('يسعدنا حضوركم حفل خطوبة زياد وحوراء');
+  const gcalLoc = encodeURIComponent('قاعة أرينا، زيونة، بغداد');
+  document.getElementById('gcalBtn').href =
+    `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${gcalText}&dates=20261009T170000/20261009T200000&ctz=Asia/Baghdad&details=${gcalDetails}&location=${gcalLoc}`;
+
+  const icsContent =
+`BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+SUMMARY:خطوبة زياد وحوراء
+DTSTART:20261009T170000
+DTEND:20261009T200000
+LOCATION:قاعة أرينا، زيونة، بغداد
+DESCRIPTION:يسعدنا حضوركم حفل خطوبة زياد وحوراء
+END:VEVENT
+END:VCALENDAR`;
+  document.getElementById('icsBtn').href =
+    'data:text/calendar;charset=utf8,' + encodeURIComponent(icsContent);
+</script>
+</body>
+</html>

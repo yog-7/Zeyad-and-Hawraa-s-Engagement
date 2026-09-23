@@ -337,13 +337,16 @@
   .tap-hint{
     position:relative; z-index:2;
     margin-top:5vh;
-    display:flex; align-items:center; gap:.5rem;
+    display:flex; align-items:center; justify-content:center; gap:.5rem;
     font-size:.85rem;
     color:var(--gold-light);
     cursor:pointer;
     letter-spacing:.03em;
     animation: hintPulse 1.8s ease-in-out infinite;
     order:5;
+    padding:1rem 2.5rem;
+    min-width:220px;
+    -webkit-tap-highlight-color: transparent;
   }
   .stage.open ~ .tap-hint{ display:none; }
   @keyframes hintPulse{ 0%,100%{opacity:.55;} 50%{opacity:1;} }
@@ -562,7 +565,7 @@
   <div class="couple-names names-font">زياد <span class="amp">&amp;</span> حوراء</div>
   <div class="spot-beam"></div>
 
-  <div class="stage" id="stage">
+  <div class="stage" id="stage" onclick="openBox()" style="cursor:pointer;">
     <div class="petals" id="petals"></div>
     <div class="pedestal"></div>
     <div class="box-wrap">
@@ -695,40 +698,25 @@
   <footer>صُممت هذه الدعوة بمحبة لأجل زياد وحوراء<br>BY: ENG Youssif G.Abdulkreem</footer>
 </section>
 
-<div id="yt-player" style="position:fixed; width:1px; height:1px; opacity:0; pointer-events:none; bottom:0; left:0;"></div>
+<audio id="bgAudio" src="song.mp3" preload="auto" playsinline></audio>
 <button id="soundToggle" aria-label="صوت" style="position:fixed; bottom:18px; left:18px; z-index:50; width:42px; height:42px; border-radius:50%; border:1px solid rgba(205,168,110,.5); background:rgba(20,6,9,.7); color:#ecd9ab; font-size:1.1rem; cursor:pointer; backdrop-filter:blur(4px);">🔈</button>
 
-<script src="https://www.youtube.com/iframe_api"></script>
 <script>
-  /* ---------- background song (official Rotana YouTube upload, started at 0:25) ---------- */
-  let ytPlayer = null;
-  let ytReady = false;
-  let wantsPlay = false;
+  /* ---------- background song (local file, starts at 0:25, no ads) ---------- */
+  const bgAudio = document.getElementById('bgAudio');
   let muted = false;
-  function onYouTubeIframeAPIReady(){
-    ytPlayer = new YT.Player('yt-player', {
-      videoId: '3sXYll2g_6c',
-      playerVars: { start: 25, controls: 0, disablekb: 1, playsinline: 1 },
-      events: {
-        onReady: function(){
-          ytReady = true;
-          if(wantsPlay){ ytPlayer.playVideo(); }
-        }
-      }
-    });
-  }
   function playSong(){
-    wantsPlay = true;
-    if(ytReady){
-      ytPlayer.seekTo(25, true);
-      ytPlayer.playVideo();
+    try{
+      bgAudio.currentTime = 25;
+    }catch(e){
+      bgAudio.addEventListener('loadedmetadata', ()=>{ bgAudio.currentTime = 25; }, { once:true });
     }
+    bgAudio.play().catch(()=>{});
   }
   document.getElementById('soundToggle').addEventListener('click', ()=>{
-    if(!ytReady) return;
     muted = !muted;
-    if(muted){ ytPlayer.mute(); document.getElementById('soundToggle').textContent='🔇'; }
-    else{ ytPlayer.unMute(); document.getElementById('soundToggle').textContent='🔈'; }
+    bgAudio.muted = muted;
+    document.getElementById('soundToggle').textContent = muted ? '🔇' : '🔈';
   });
 </script>
 <script>

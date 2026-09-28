@@ -659,9 +659,9 @@
     <div class="orn-row"><span class="orn-line"></span><span class="orn-dot"></span><span class="orn-line"></span></div>
     <h3>الموقع</h3>
     <div class="loc-date">الجمعة، 2026-10-9</div>
-    <div class="loc-time">5:00 PM</div>
-    <div class="loc-venue">قاعة أرينا</div>
-    <div class="loc-city">زيونة – بغداد</div>
+    <div class="loc-time">4:00 PM</div>
+    <div class="loc-venue">قاعة التاج</div>
+    <div class="loc-city">السيدية – بغداد</div>
     <a class="gold-btn" id="mapBtn" href="#" target="_blank" rel="noopener">📍 الموقع على الخريطة</a>
   </div>
 
@@ -681,7 +681,7 @@
       <div class="cal-day">الجمعة</div>
       <div class="cal-num names-font">9</div>
     </div>
-    <div class="cal-time">5:00 PM</div>
+    <div class="cal-time">4:00 PM</div>
     <div class="cal-hint">📲 أضيفوا الموعد إلى تقويم هاتفكم بضغطة</div>
     <div class="cal-buttons">
       <a id="gcalBtn" href="#" target="_blank" rel="noopener">تقويم جوجل</a>
@@ -785,7 +785,7 @@
   cards.forEach(c=>io.observe(c));
 
   /* ---------- countdown ---------- */
-  const weddingDate = new Date('2026-10-09T17:00:00');
+  const weddingDate = new Date('2026-10-09T16:00:00');
   function tickCountdown(){
     const now = new Date();
     let diff = weddingDate - now;
@@ -803,22 +803,22 @@
   setInterval(tickCountdown, 1000);
 
   /* ---------- map + calendar links ---------- */
-  document.getElementById('mapBtn').href = "https://www.google.com/maps/place/33%C2%B019'09.0%22N+44%C2%B026'38.2%22E/@33.3191643,44.4413681,17z/data=!3m1!4b1!4m4!3m3!8m2!3d33.3191643!4d44.443943?hl=en&entry=ttu&g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D";
+  document.getElementById('mapBtn').href = "https://maps.app.goo.gl/ngCBchfXURyQQXNw7";
 
   const gcalText = encodeURIComponent('خطوبة زياد وحوراء');
   const gcalDetails = encodeURIComponent('يسعدنا حضوركم حفل خطوبة زياد وحوراء');
-  const gcalLoc = encodeURIComponent('قاعة أرينا، زيونة، بغداد');
+  const gcalLoc = encodeURIComponent('قاعة التاج، السيدية، بغداد');
   document.getElementById('gcalBtn').href =
-    `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${gcalText}&dates=20261009T170000/20261009T200000&ctz=Asia/Baghdad&details=${gcalDetails}&location=${gcalLoc}`;
+    `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${gcalText}&dates=20261009T160000/20261009T190000&ctz=Asia/Baghdad&details=${gcalDetails}&location=${gcalLoc}`;
 
   const icsContent =
 `BEGIN:VCALENDAR
 VERSION:2.0
 BEGIN:VEVENT
 SUMMARY:خطوبة زياد وحوراء
-DTSTART:20261009T170000
-DTEND:20261009T200000
-LOCATION:قاعة أرينا، زيونة، بغداد
+DTSTART:20261009T160000
+DTEND:20261009T190000
+LOCATION:قاعة التاج، السيدية، بغداد
 DESCRIPTION:يسعدنا حضوركم حفل خطوبة زياد وحوراء
 END:VEVENT
 END:VCALENDAR`;
